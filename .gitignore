@@ -1,3 +1,12 @@
+# replit environent
+.config/
+.git/
+venv/
+*.replit
+.replit
+replit.nix
+.upm/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
