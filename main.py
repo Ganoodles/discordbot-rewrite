@@ -2,6 +2,10 @@ import os
 import interactions
 import datetime
 
+EXTENSIONS = [
+    "extensions.example_command",
+]
+
 _ready: bool = False
 
 class NoodleBot():
@@ -15,6 +19,15 @@ class NoodleBot():
     def run(self):
         print("Starting...")
         self.bot.event(self.on_ready)  # registers the on_ready event
+        
+        # load extensions
+        for extension in EXTENSIONS:
+            try:
+                self.bot.load(extension)
+                print("SUCCESS - " + str(extension))
+            except ModuleNotFoundError as Err:
+                print("FAILED - " + str(Err))
+        
         self.bot.start()
 
     async def on_ready(self):
