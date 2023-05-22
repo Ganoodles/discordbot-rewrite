@@ -1,10 +1,10 @@
-"""Core Extension for NoodleBot."""
+"""Core Extension for BotHandler."""
 
 import interactions
 
 
 class Core(interactions.Extension):
-    """Core extension for NoodleBot."""
+    """Core extension for BotHandler."""
 
     # This is equivalent to discord.py's 'on_ready' function
     @interactions.listen()
