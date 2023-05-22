@@ -10,9 +10,7 @@ from pkgutil import iter_modules
 EXTENSIONS = [m.name for m in iter_modules(["exts"], prefix="exts.")]
 
 # manually load extensions
-#EXTENSIONS = [
-#    "exts.core",
-#]
+# EXTENSIONS = ["exts.core", "exts.example_command",]
 
 load_dotenv()
 
