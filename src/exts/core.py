@@ -16,8 +16,8 @@ class Core(interactions.Extension):
         await self.bot.change_presence(
             status=interactions.Status.ONLINE,
             activity=interactions.Activity(
-                name="/help",
-                type=interactions.ActivityType.LISTENING,
+                name="you",
+                type=interactions.ActivityType.WATCHING,
             ),
         )
 
