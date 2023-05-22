@@ -6,9 +6,6 @@ import interactions
 class Core(interactions.Extension):
     """Core extension for NoodleBot."""
 
-    def __init__(self, bot):
-        self.bot = bot
-
     # This is equivalent to discord.py's 'on_ready' function
     @interactions.listen()
     async def on_startup(self):
