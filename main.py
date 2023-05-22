@@ -1,15 +1,18 @@
 import os
-import interactions
-from interactions import listen
-from interactions.api.events import Startup
 
 import datetime
 from dotenv import load_dotenv
 
-EXTENSIONS = [
-    "extensions.example_command",
-    "extensions.core"
-]
+import interactions
+from pkgutil import iter_modules
+
+# autoload extensions in exts/
+EXTENSIONS = [m.name for m in iter_modules(["exts"], prefix="exts.")]
+
+# manually load extensions
+#EXTENSIONS = [
+#    "exts.core",
+#]
 
 load_dotenv()
 
@@ -17,7 +20,9 @@ class NoodleBot():
     def __init__(self):
         self.launch_time = datetime.datetime.utcnow()
         self.token = os.environ['TOKEN']
-        self.bot = interactions.Client(token=self.token)
+        self.bot = interactions.Client(
+            token=self.token,
+        )
 
     def run(self):
         # load extensions
