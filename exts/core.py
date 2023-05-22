@@ -19,5 +19,6 @@ class Core(Extension):
                 )
             )
 
+
 def setup(bot):
     Core(bot)
