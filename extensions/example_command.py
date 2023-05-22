@@ -1,15 +1,15 @@
-import interactions
+from interactions import Extension, slash_command, SlashContext
 
-class TestCommand(interactions.Extension):
+class TestCommand(Extension):
     def __init__(self, bot):
-        self.bot: interactions.Client = bot
+        self.bot = bot
 
-    @interactions.extension_command(
+    @slash_command(
         name="ping",                             
         description="Measures the bot latency to discord"
-  )
-    async def measure_ping(self, ctx: interactions.CommandContext):
-        await ctx.send(f'Pong! 🏓 - {round(self.bot.latency, 2)} seconds')
+    )
+    async def measure_ping(self, ctx):
+        await ctx.send('Pong! 🏓')
     
-def setup(client):
-    TestCommand(client)
+def setup(bot):
+    TestCommand(bot)
